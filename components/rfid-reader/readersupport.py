@@ -176,6 +176,8 @@ def query_user_for_reader(dependency_install='query') -> dict:
         # Check loaded module for validity
         # Minimum requirement is a class with name 'ReaderClass'
         # (that is enough testing here, as we cannot check the functionality anyway)
+            #check if the BaseClass is used
+                            assert(reader_module subclass of ReaderBaseClass)
         if 'ReaderClass' not in dir(reader_module):
             logger.error(f"Reader module '{reader_module.__name__}' is missing mandatory class named 'Reader'.")
             raise AttributeError(f"Reader module '{reader_module.__name__}' is missing mandatory class named 'Reader'.")
